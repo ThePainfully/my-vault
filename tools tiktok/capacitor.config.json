@@ -1,0 +1,6 @@
+{
+  "appId": "com.myvault.app",
+  "appName": "My Vault",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

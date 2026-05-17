@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>خزنتي الخاصة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- أيقونة التطبيق للايفون -->
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2913/2913133.png">
+</head>
+<body>
+    
+    <!-- شاشة تسجيل الدخول -->
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <div class="logo-box">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>خزنتي الخاصة</h1>
+            <p>أدخل كلمة المرور الرئيسية للوصول</p>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="master-password" placeholder="كلمة المرور الرئيسية...">
+            </div>
+            <button id="login-btn" class="primary-btn">تسجيل الدخول <i class="fas fa-arrow-left"></i></button>
+            <p id="login-error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- شاشة التطبيق (الخزنة) -->
+    <div id="vault-screen" class="screen">
+        <header>
+            <div class="header-content">
+                <h2><i class="fas fa-shield-alt"></i> حساباتي المحفوظة</h2>
+                <button id="logout-btn" class="icon-btn"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </header>
+
+        <main>
+            <!-- قائمة الحسابات -->
+            <div id="accounts-list" class="accounts-list">
+                <!-- سيتم إضافة الحسابات هنا برمجياً -->
+            </div>
+            
+            <!-- زر إضافة حساب جديد -->
+            <button id="add-new-btn" class="floating-btn">
+                <i class="fas fa-plus"></i>
+            </button>
+        </main>
+    </div>
+
+    <!-- نافذة إضافة حساب جديد (Modal) -->
+    <div id="add-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fas fa-times"></i></span>
+            <h3>إضافة حساب جديد</h3>
+            
+            <div class="form-group">
+                <label>اسم الموقع أو التطبيق (مثل: انستقرام)</label>
+                <input type="text" id="site-name" placeholder="مثال: Instagram">
+            </div>
+            
+            <div class="form-group">
+                <label>اليوزر أو الإيميل</label>
+                <input type="text" id="account-username" placeholder="مثال: user@mail.com">
+            </div>
+            
+            <div class="form-group">
+                <label>كلمة المرور</label>
+                <div class="password-input-wrapper">
+                    <input type="password" id="account-password" placeholder="أدخل كلمة المرور">
+                    <button type="button" class="toggle-pwd-btn"><i class="fas fa-eye"></i></button>
+                </div>
+            </div>
+            
+            <button id="save-account-btn" class="primary-btn">حفظ البيانات</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js');
+            });
+        }
+    </script>
+</body>
+</html>

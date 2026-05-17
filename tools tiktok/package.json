@@ -1,0 +1,14 @@
+{
+  "name": "my-vault",
+  "version": "1.0.0",
+  "description": "Password Manager App",
+  "main": "index.js",
+  "scripts": {
+    "prepare-build": "mkdir -p www && cp index.html style.css script.js manifest.json sw.js www/"
+  },
+  "dependencies": {
+    "@capacitor/cli": "^5.0.0",
+    "@capacitor/core": "^5.0.0",
+    "@capacitor/ios": "^5.0.0"
+  }
+}
